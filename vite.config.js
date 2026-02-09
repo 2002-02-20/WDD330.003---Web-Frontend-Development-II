@@ -9,7 +9,8 @@ export default defineConfig({
         bible: resolve(__dirname, 'hero_page/hero_page.html'),
         heroes: resolve(__dirname, 'verse_page/verse_page.html'),
         header: resolve(__dirname, 'public/partials/header.html'),
-        footer: resolve(__dirname, 'public/partials/footer.html')
+        footer: resolve(__dirname, 'public/partials/footer.html'),
+        favorite_pagae: resolve(__dirname, 'favorite_page/favorite_page.html')
       }
     }
   }
