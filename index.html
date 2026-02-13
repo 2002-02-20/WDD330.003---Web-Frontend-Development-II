@@ -29,27 +29,67 @@
   <body>
     <header id="main-header"></header>
     <main>
-      <div class="hero">
-        <h1>Find Your Daily Inspiration</h1>
-        <p>
-          Discover wisdom from the Bible and heroic quotes from your favorite
-          superheroes
+      <!-- Main Content -->
+      <div class="main-content">
+     
+        <h2 class="section-title">Today's Heroic Inspiration</h2>
+        <p class="section-subtitle">
+          A daily pairing of superhero and Scripture
         </p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📖</div>
-        <h3>Bible Verses</h3>
-        <p>
-          Explore random verses from the Holy Bible for spiritual guidance and
-          wisdom
-        </p>
-        <button class="card-btn"><a href="/verse_page/verse_page.html">Get Inspired</a></button>
-      </div>
-      <div class="card">
-        <div class="card-icon">🦸</div>
-        <h3>Superheroes</h3>
-        <p>Learn about amazing heroes, their powers, and inspiring stories</p>
-        <button class="card-btn"><a href="/hero_page/hero_page.html">Meet Heroes</a></button>
+
+        <!-- Main Hero-Verse Match Card -->
+        <div class="match-card">
+          <div class="match-header">
+            <h3>Today's Match</h3>
+            <p>February 09, 2026</p>
+          </div>
+
+          <div class="match-content">
+            <!-- Hero Side -->
+            <div class="hero-side">
+              <div class="hero-icon">🕷️</div>
+              <h3 class="hero-name">Spider-Man</h3>
+              <p class="hero-alias">Peter Parker</p>
+              <div class="hero-virtue">Responsibility</div>
+            </div>
+
+            <!-- Verse Side -->
+            <div class="verse-side">
+              <div class="verse-icon">✨</div>
+              <div class="verse-text">
+                "From everyone who has been given much, much will be demanded;
+                and from the one who has been entrusted with much, much more
+                will be asked."
+              </div>
+              <div class="verse-reference">— Luke 12:48 (NIV)</div>
+
+              <div class="connection-box">
+                <div class="connection-label">🔗 The Connection</div>
+                <div>
+                  Spider-Man's iconic mantra "With great power comes great
+                  responsibility" perfectly mirrors this biblical principle.
+                  Both teach that those blessed with abilities must use them to
+                  serve others, not themselves.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="match-actions">
+            <button class="action-btn btn-primary">⭐ Save to Favorites</button>
+            <button class="action-btn btn-secondary">🔄 Get New Match</button>
+            <button class="action-btn btn-secondary">📤 Share</button>
+          </div>
+        </div>
+
+        <div class="feature-highlight">
+          <h4>💡 How It Works</h4>
+          <p>
+            Each hero is matched with Bible verses that reflect their core
+            values, powers, or story arc. Discover how ancient wisdom connects
+            with modern heroism!
+          </p>
+        </div>
       </div>
     </main>
     <footer id="main-footer"></footer>

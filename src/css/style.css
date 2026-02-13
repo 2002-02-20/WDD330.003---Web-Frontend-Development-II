@@ -74,50 +74,411 @@ a {
   text-align: center;
 }
 
-.hero {
-  background: linear-gradient(135deg, #3f4f3c 0%, #8e9b73 100%);
-  color: #f7f8f5;
-  padding: 60px 40px;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 2.5rem;
+/* MAIN CONTENT */
+.main-content {
+    background: #F7F8F5;
+    padding: 60px 40px;
 }
 
-.card {
-  background: white;
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid #b0b6ba;
-  text-align: center;
-  cursor: pointer;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-    margin: 20px 0;
-    width: 70%;
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 36px;
+    color: #3F4F3C;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+.section-subtitle {
+    text-align: center;
+    color: #1F1F1F;
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.8;
 }
 
-.card-icon {
-  font-size: 60px;
-  margin-bottom: 20px;
+/* HERO-VERSE MATCH CARD (Main Feature) */
+.match-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 900px;
+    margin: 0 auto 40px;
+    border: 3px solid #8C7A3E;
 }
 
-.card h3 {
-  font-family: "Merriweather", serif;
-  font-size: 28px;
-  color: #3f4f3c;
-  margin-bottom: 15px;
+.match-header {
+    background: linear-gradient(135deg, #8C7A3E 0%, #6d5e2f 100%);
+    color: #F7F8F5;
+    padding: 20px 30px;
+    text-align: center;
 }
 
-.card p {
-  color: #1f1f1f;
-  font-size: 16px;
-  line-height: 1.6;
+.match-header h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.match-header p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.match-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+}
+
+.hero-side {
+    background: linear-gradient(135deg, #8E9B73 0%, #3F4F3C 100%);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #F7F8F5;
+    position: relative;
+}
+
+.hero-icon {
+    font-size: 120px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.hero-name {
+    font-family: 'Merriweather', serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hero-alias {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.hero-virtue {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.verse-side {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F7F8F5;
+    border-left: 3px solid #8C7A3E;
+}
+
+.verse-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+}
+
+.verse-text {
+    font-family: 'Merriweather', serif;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #1F1F1F;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.verse-reference {
+    color: #8C7A3E;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.connection-box {
+    background: #8E9B73;
+    color: #F7F8F5;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.connection-label {
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.match-actions {
+    padding: 25px 30px;
+    background: white;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    border-top: 2px solid #B0B6BA;
+}
+
+.action-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.btn-primary {
+    background: #8C7A3E;
+    color: #F7F8F5;
+}
+
+.btn-primary:hover {
+    background: #6d5e2f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(140, 122, 62, 0.3);
+}
+
+.btn-secondary {
+    background: #8E9B73;
+    color: #F7F8F5;
+}
+
+.btn-secondary:hover {
+    background: #3F4F3C;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(63, 79, 60, 0.3);
+}
+
+/* EXPLORE GRID */
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mini-match-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #B0B6BA;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mini-match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #8C7A3E;
+}
+
+.mini-hero {
+    background: linear-gradient(135deg, #8E9B73 0%, #3F4F3C 100%);
+    padding: 30px 20px;
+    text-align: center;
+    color: #F7F8F5;
+}
+
+.mini-hero-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.mini-hero-name {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mini-verse {
+    padding: 20px;
+}
+
+.mini-verse-text {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #1F1F1F;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mini-verse-ref {
+    color: #8C7A3E;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* FAVORITES SECTION */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.favorite-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #8C7A3E;
+    position: relative;
+}
+
+.favorite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.favorite-hero {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.favorite-hero-icon {
+    font-size: 40px;
+}
+
+.favorite-hero-name {
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    color: #3F4F3C;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.favorite-verse-text {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #1F1F1F;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.favorite-verse-ref {
+    color: #8C7A3E;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* FEATURE HIGHLIGHT (usado dentro de main-content) */
+.feature-highlight {
+    background: #8E9B73;
+    border: 2px dashed #3F4F3C;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.feature-highlight h4 {
+    color: #3F4F3C;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feature-highlight p {
+    color: #1F1F1F;
+    font-size: 14px;
+}
+
+/* ANNOTATIONS (usado dentro de main-content) */
+.annotation {
+    background: #8C7A3E;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* MOBILE VERSIONS */
+.mobile-content {
+    padding: 30px 20px;
+}
+
+.mobile-match-content {
+    grid-template-columns: 1fr;
+}
+
+.mobile-hero-side {
+    padding: 30px 20px;
+    min-height: 250px;
+}
+
+.mobile-hero-icon {
+    font-size: 80px;
+}
+
+.mobile-hero-name {
+    font-size: 24px;
+}
+
+.mobile-verse-side {
+    padding: 30px 20px;
+}
+
+.mobile-verse-text {
+    font-size: 18px;
+}
+
+.mobile-match-actions {
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-action-btn {
+    width: 100%;
+    padding: 15px;
+}
+
+.mobile-explore-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.mobile-favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
