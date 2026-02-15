@@ -19,7 +19,7 @@ export default class ExternalServices {
 
         const data = await response.json();
         //console.log(data);
-        //return data;
+        return data;
 
     }
 
@@ -36,8 +36,8 @@ export default class ExternalServices {
 
 
         const data = await response.json();
-        console.log(data, "random verse");
-        //return data;
+        //console.log(data, "random verse");
+        return data;
 
     }
 
@@ -58,9 +58,9 @@ export default class ExternalServices {
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            console.log(result);
+            return result;
         } catch (error) {
-            console.error(error);
+           return error;
         }
     }
 

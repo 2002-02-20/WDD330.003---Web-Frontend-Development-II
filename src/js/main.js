@@ -1,10 +1,16 @@
 import { loadHeaderFooter } from "./utils.mjs";
-import ExternalServices from "./ExternalServices.js";
-import {dataTimeActual } from "./data.js";
 
-const services = new ExternalServices();
+import { dataTimeActual } from "./data.js";
+import PrincipalCart from "./principalCart.js";
 
-//services.getRandomVerse();
-//services.getHeroes();
-loadHeaderFooter();
-dataTimeActual();
+const services = new PrincipalCart();
+document.addEventListener("DOMContentLoaded", () => {
+    services.displayCourseDetails();
+    loadHeaderFooter();
+    dataTimeActual();
+});
+
+
+
+
+
