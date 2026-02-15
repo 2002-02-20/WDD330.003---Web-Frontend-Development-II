@@ -6,43 +6,51 @@ export default class PrincipalCart {
 
     constructor() {
         this.productsAPI = new ExternalServices();
-        this.init(this.productsAPI);
-        
+        this.newMatchBtn = document.querySelector('.btn-secondary');
+        this.newMatchBtn.addEventListener("click", () => {
+            this.generateNewMatch(this.productsAPI);
+        });
     }
 
-    async init(productsAPI) {
+
+
+    async generateNewMatch(productsAPI) {
         const heroes = await productsAPI.getHeroes();
         const verse = await productsAPI.getRandomVerse();
-      
-            heroes.map(hero => {                
-                const combat = hero.powerstats.combat;
-                const durability = hero.powerstats.durability;
-                const intelligence = hero.powerstats.intelligence;
-                const power = hero.powerstats.power;
-                const speed = hero.powerstats.speed;
-                const strength = hero.powerstats.strength;
-
-                const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
-                
-                let topHability;
+       // const a = await productsAPI.getRandomVerseBook();
 
 
-                if (maxHability === combat) topHability = "Combat";
-                else if (maxHability === durability)  topHability = "Durability";     
-                else if (maxHability === intelligence) topHability = "Intelligence";
-                else if (maxHability === power) topHability = "Power";
-                else if (maxHability === speed) topHability = "Speed";
-                else if (maxHability === strength) topHability = "Strength";
-                
-                this.displayCourseDetails(hero, topHability, verse);
-            });
+
+
+        heroes.map(hero => {
+            const combat = hero.powerstats.combat;
+            const durability = hero.powerstats.durability;
+            const intelligence = hero.powerstats.intelligence;
+            const power = hero.powerstats.power;
+            const speed = hero.powerstats.speed;
+            const strength = hero.powerstats.strength;
+
+            const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
+            let topHability;
+            if (maxHability === combat) topHability = "Combat";
+            else if (maxHability === durability) topHability = "Durability";
+            else if (maxHability === intelligence) topHability = "Intelligence";
+            else if (maxHability === power) topHability = "Power";
+            else if (maxHability === speed) topHability = "Speed";
+            else if (maxHability === strength) topHability = "Strength";
+
+            this.displayCourseDetails(hero, topHability, verse);
+
+
+
+
+        });
 
     }
 
     displayCourseDetails(hero, topHability, verse) {
-         console.log(verse, "verse");
-        mainContent.innerHTML = '';
-        mainContent.innerHTML = `
+
+            mainContent.innerHTML = `
         
             <!-- Hero Side -->
             <div class="hero-side">
@@ -75,12 +83,7 @@ export default class PrincipalCart {
  
   `;
 
-        //mainContent.appendChild(courseDetails);
-        /*
-        closeModal.addEventListener("click", () => {
-            courseDetails.close();
-        });
-        */
+
     }
 
 }

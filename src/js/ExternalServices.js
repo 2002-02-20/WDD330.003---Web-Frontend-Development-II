@@ -33,10 +33,23 @@ export default class ExternalServices {
                 'Content-Type': 'application/json'
             }
         });
-
-
         const data = await response.json();
         //console.log(data, "random verse");
+        return data;
+
+    }
+
+    //random verse
+    async getRandomVerseBook() {
+        const url = `${bibleAPI}/api/verses/bbe/en/random`;
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${TOKENBIBLE}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
         return data;
 
     }
