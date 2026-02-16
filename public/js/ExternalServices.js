@@ -1,7 +1,6 @@
-const bibleAPI = "https://www.abibliadigital.com.br";
-const herosAPI = "https://superhero-search.p.rapidapi.com";
-const TOKENBIBLE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHIiOiJXZWQgRmViIDExIDIwMjYgMDI6NTQ6NDggR01UKzAwMDAuNjk3NTFlZGQ0NDE2MWMwMDI4MTU4MDdiIiwiaWF0IjoxNzcwNzc4NDg4fQ.gG5xLxOUprYuxkqhd5R8XUV3Xnd0kVxTQVq9av4AQjY";
-const TOKENHERO = "4cfd49e15amshf9c80fbee2b5ea2p19537fjsne4b2d31e7d71";
+import { TOKENBIBLE, TOKENHERO,bibleAPI,herosAPI } from "./keys.js";
+
+
 export default class ExternalServices {
 
     //biblieApi
@@ -45,10 +44,10 @@ export default class ExternalServices {
     try {
         const response = await fetch("/dataTest/bible.json");
         const result = await response.json();
-        
-        // ✅ Seleccionar UN verso aleatorio del array
+        console.log(TOKENHERO, "TOKENHERO", " - ", TOKENBIBLE , "BIBLE")
+       
         const randomIndex = Math.floor(Math.random() * result.length);
-        return result[randomIndex]; // Retorna UN objeto, no el array completo
+        return result[randomIndex]; o
         
     } catch (error) {
         console.error("Error loading local verse:", error);
@@ -81,7 +80,6 @@ export default class ExternalServices {
             method: 'GET',
             headers: {
                 //'x-rapidapi-key': `${TOKENHERO}`,
-                'x-rapidapi-key': "8682f38cf7msh579e2fa96670bd4p142d07jsn783276a297fc",
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
             }
         };

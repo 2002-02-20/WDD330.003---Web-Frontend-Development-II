@@ -30,7 +30,7 @@ export default class PrincipalCart {
 
   async generateNewMatch(productsAPI) {
     const heroes = await productsAPI.getHeroes();
-    const threeHEROES = heroes.slice(0, 1);
+    const threeHEROES = heroes.slice(0, 5);
     const verse = await productsAPI.getRandomVerse();
     this.matchBibleVerse(this.conceptData, verse, threeHEROES);
 
@@ -92,7 +92,8 @@ export default class PrincipalCart {
 
 
   displayCourseDetails(hero, topHability, verse) {
-
+    console.log(hero, "hero");
+    console.log(verse, "verse")
     const abilityKey = topHability?.toLowerCase().trim();
     const ability = this.conceptData[abilityKey];
     mainContent.innerHTML = `
