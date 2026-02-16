@@ -102,7 +102,7 @@ export default class PrincipalCart {
             <div class="hero-side">
               <img src="${hero?.images.sm || "Hero without image"}" class="hero-icon"/>
               <h3 class="hero-name">${hero?.name || "Hero without name"}</h3>
-              <p class="hero-alias">${hero?.biography.fullName || "Hero without Full name"})</p>
+              <p class="hero-alias">${hero?.biography.fullName || "Hero without Full name"}</p>
               <div class="hero-virtue">${topHability}</div>
             </div>
 

@@ -44,8 +44,7 @@ export default class ExternalServices {
     try {
         const response = await fetch("/dataTest/bible.json");
         const result = await response.json();
-        console.log(TOKENHERO, "TOKENHERO", " - ", TOKENBIBLE , "BIBLE")
-       
+              
         const randomIndex = Math.floor(Math.random() * result.length);
         return result[randomIndex]; o
         

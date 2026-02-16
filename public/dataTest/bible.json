@@ -28,5 +28,35 @@
         "chapter": 9,
         "number": 23,
         "text": "These were the chiefs of the overseers of Solomon's work, five hundred and fifty, in authority over the people who did the work"
-    }
+    },
+    {
+        "book": {
+        "abbrev": {
+            "pt": "rm",
+            "en": "rm"
+        },
+        "name": "Romanos",
+        "author": "Paulo",
+        "group": "Cartas",
+        "version": "bbe"
+    },
+    "chapter": 15,
+    "number": 32,
+    "text": "So that I may come to you in joy by the good pleasure of God, and have rest with you."
+    },
+    {
+    "book": {
+        "abbrev": {
+            "pt": "jr",
+            "en": "jr"
+        },
+        "name": "Jeremias",
+        "author": "Jeremias",
+        "group": "Profetas maiores",
+        "version": "bbe"
+    },
+    "chapter": 18,
+    "number": 8,
+    "text": "If, in that very minute, that nation of which I was talking is turned away from its evil, my purpose of doing evil to them will be changed."
+}
 ]
