@@ -107,5 +107,3 @@ export default class ExternalServices {
 }
 
 }
-
-//const firstkey = '8682f38cf7msh579e2fa96670bd4p142d07jsn783276a297fc';
