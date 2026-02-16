@@ -1,0 +1,150 @@
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.favorite-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #8C7A3E;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.favorite-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.favorite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.favorite-hero {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.favorite-hero-icon {
+    font-size: 40px;
+}
+
+.favorite-hero-name {
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    color: #3F4F3C;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.favorite-virtue-tag {
+    font-size: 11px;
+    color: #8E9B73;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.favorite-verse-text {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #1F1F1F;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.favorite-verse-ref {
+    color: #8C7A3E;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    color: #3F4F3C;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    color: #1F1F1F;
+    font-size: 16px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .favorite-card {
+        padding: 25px;
+    }
+
+    .favorite-hero-icon {
+        font-size: 35px;
+    }
+
+    .favorite-hero-name {
+        font-size: 18px;
+    }
+
+    .favorite-verse-text {
+        font-size: 15px;
+    }
+
+    .empty-state {
+        padding: 40px 20px;
+    }
+
+    .empty-icon {
+        font-size: 60px;
+    }
+
+    .empty-state h3 {
+        font-size: 24px;
+    }
+}

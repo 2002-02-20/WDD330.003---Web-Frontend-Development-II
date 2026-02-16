@@ -1,0 +1,32 @@
+[
+    {
+        "book": {
+            "abbrev": {
+                "pt": "2ts",
+                "en": "2ts"
+            },
+            "name": "2ª Tessalonicenses",
+            "author": "Paulo",
+            "group": "Cartas",
+            "version": "bbe"
+        },
+        "chapter": 1,
+        "number": 6,
+        "text": "For it is an act of righteousness on God's part to give trouble as their reward to those who are troubling you"
+    },
+    {
+        "book": {
+            "abbrev": {
+                "pt": "1rs",
+                "en": "1rs"
+            },
+            "name": "1º Reis",
+            "author": "Jeremias",
+            "group": "Históricos",
+            "version": "bbe"
+        },
+        "chapter": 9,
+        "number": 23,
+        "text": "These were the chiefs of the overseers of Solomon's work, five hundred and fifty, in authority over the people who did the work"
+    }
+]

@@ -1,0 +1,214 @@
+/* ============================================
+   MOBILE STYLES
+   ============================================ */
+
+.mobile-screen {
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+.mobile-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-logo {
+    font-size: 20px;
+}
+
+.mobile-nav {
+    width: 100%;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.mobile-nav-item {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+.mobile-hero {
+    padding: 50px 20px;
+}
+
+.mobile-hero h1 {
+    font-size: 36px;
+}
+
+.mobile-hero-subtitle {
+    font-size: 18px;
+}
+
+.mobile-content {
+    padding: 30px 20px;
+}
+
+.mobile-match-content {
+    grid-template-columns: 1fr;
+}
+
+.mobile-hero-side {
+    padding: 30px 20px;
+    min-height: 250px;
+}
+
+.mobile-hero-icon {
+    font-size: 80px;
+}
+
+.mobile-hero-name {
+    font-size: 24px;
+}
+
+.mobile-verse-side {
+    padding: 30px 20px;
+}
+
+.mobile-verse-text {
+    font-size: 18px;
+}
+
+.mobile-match-actions {
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-action-btn {
+    width: 100%;
+    padding: 15px;
+}
+
+.mobile-explore-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.mobile-favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.mobile-footer {
+    padding: 30px 20px;
+}
+
+/* BOTTOM NAVIGATION (Mobile) */
+.bottom-nav {
+    background: white;
+    border-top: 2px solid #B0B6BA;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #3F4F3C;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.bottom-nav-item.active {
+    opacity: 1;
+    color: #8C7A3E;
+}
+
+.bottom-nav-icon {
+    font-size: 24px;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .main-content {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .match-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-side {
+        padding: 30px 20px;
+        min-height: 250px;
+    }
+
+    .hero-icon {
+        font-size: 80px;
+    }
+
+    .hero-name {
+        font-size: 24px;
+    }
+
+    .verse-side {
+        padding: 30px 20px;
+    }
+
+    .verse-text {
+        font-size: 18px;
+    }
+
+    .match-actions {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .explore-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+}

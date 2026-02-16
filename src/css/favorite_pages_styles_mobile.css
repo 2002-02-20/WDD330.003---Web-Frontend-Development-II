@@ -1,0 +1,75 @@
+@media (max-width: 768px) {
+    /* Header Mobile */
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* Main Content Mobile */
+    .main-content {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    /* Favorites Mobile */
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .favorite-card {
+        padding: 25px;
+    }
+
+    .favorite-hero-icon {
+        font-size: 35px;
+    }
+
+    .favorite-hero-name {
+        font-size: 18px;
+    }
+
+    .favorite-verse-text {
+        font-size: 15px;
+    }
+
+    /* Empty State Mobile */
+    .empty-state {
+        padding: 40px 20px;
+    }
+
+    .empty-icon {
+        font-size: 60px;
+    }
+
+    .empty-state h3 {
+        font-size: 24px;
+    }
+
+   
+}

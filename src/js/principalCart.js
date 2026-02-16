@@ -1,62 +1,107 @@
 import ExternalServices from "./ExternalServices.js";
+import FavoriteTemplates from "./favoriteTemplates.js";
+import ConceptBank from "./conceptBank.js";
+
 
 const mainContent = document.querySelector('.match-content');
 
 export default class PrincipalCart {
 
-    constructor() {
-        this.productsAPI = new ExternalServices();
-        this.newMatchBtn = document.querySelector('.btn-secondary');
-        this.newMatchBtn.addEventListener("click", () => {
-            this.generateNewMatch(this.productsAPI);
-        });
+  constructor() {
+    this.productsAPI = new ExternalServices();
+    this.newMatchBtn = document.querySelector('.btn-secondary');
+
+    this.favoriteMatchBtn = document.querySelector('.btn-primary');
+
+    this.generateNewMatch(this.productsAPI);
+    this.newMatchBtn.addEventListener("click", () => {
+      this.generateNewMatch(this.productsAPI);
+    });
+
+
+
+    this.conceptData = ConceptBank();
+    this.matchBibleVerse = this.matchBibleVerse;
+
+    this.favoriteTemplates = new FavoriteTemplates();
+  }
+
+
+
+  async generateNewMatch(productsAPI) {
+    const heroes = await productsAPI.getHeroes();
+    const threeHEROES = heroes.slice(0, 1);
+    const verse = await productsAPI.getRandomVerse();
+    this.matchBibleVerse(this.conceptData, verse, threeHEROES);
+
+
+    threeHEROES.map(hero => {
+      const combat = hero.powerstats.combat;
+      const durability = hero.powerstats.durability;
+      const intelligence = hero.powerstats.intelligence;
+      const power = hero.powerstats.power;
+      const speed = hero.powerstats.speed;
+      const strength = hero.powerstats.strength;
+
+      const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
+      let topHability;
+      if (maxHability === combat) topHability = "Combat";
+      else if (maxHability === durability) topHability = "Durability";
+      else if (maxHability === intelligence) topHability = "Intelligence";
+      else if (maxHability === power) topHability = "Power";
+      else if (maxHability === speed) topHability = "Speed";
+      else if (maxHability === strength) topHability = "Strength";
+
+     
+      
+      
+      this.displayCourseDetails(hero, topHability, verse);
+
+    });
+
+  }
+
+
+  matchBibleVerse(conceptData, verse, threeHEROES) {
+    const verseTEXT = verse.text.toLowerCase();
+    //console.log(verse);
+    //console.log(threeHEROES)
+    for (const category in conceptData) {
+      const keywords = conceptData[category].keywords;
+      for (const word of keywords) {
+        if (verseTEXT.includes(word)) {
+          //console.log("Match en:", category, "||", word);
+          return category;
+        } else {
+          threeHEROES.forEach(hero => {
+            const stats = hero.powerstats;
+
+            const topStat = Object.entries(stats).reduce((maxKey, [key, value]) => {
+              return value > stats[maxKey] ? key : maxKey;
+            }, Object.keys(stats)[0]);
+            //console.log(topStat, "topStat")
+            return topStat;
+
+          })
+        }
+      }
     }
-
-
-
-    async generateNewMatch(productsAPI) {
-        const heroes = await productsAPI.getHeroes();
-        const verse = await productsAPI.getRandomVerse();
-       // const a = await productsAPI.getRandomVerseBook();
+  }
 
 
 
 
-        heroes.map(hero => {
-            const combat = hero.powerstats.combat;
-            const durability = hero.powerstats.durability;
-            const intelligence = hero.powerstats.intelligence;
-            const power = hero.powerstats.power;
-            const speed = hero.powerstats.speed;
-            const strength = hero.powerstats.strength;
+  displayCourseDetails(hero, topHability, verse) {
 
-            const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
-            let topHability;
-            if (maxHability === combat) topHability = "Combat";
-            else if (maxHability === durability) topHability = "Durability";
-            else if (maxHability === intelligence) topHability = "Intelligence";
-            else if (maxHability === power) topHability = "Power";
-            else if (maxHability === speed) topHability = "Speed";
-            else if (maxHability === strength) topHability = "Strength";
-
-            this.displayCourseDetails(hero, topHability, verse);
-
-
-
-
-        });
-
-    }
-
-    displayCourseDetails(hero, topHability, verse) {
-
-            mainContent.innerHTML = `
+    const abilityKey = topHability?.toLowerCase().trim();
+    const ability = this.conceptData[abilityKey];
+    mainContent.innerHTML = `
         
             <!-- Hero Side -->
             <div class="hero-side">
               <img src="${hero?.images.sm || "Hero without image"}" class="hero-icon"/>
               <h3 class="hero-name">${hero?.name || "Hero without name"}</h3>
-              <p class="hero-alias">${hero?.biography.fullName || "Hero without Full name"}</p>
+              <p class="hero-alias">${hero?.biography.fullName || "Hero without Full name"})</p>
               <div class="hero-virtue">${topHability}</div>
             </div>
 
@@ -73,17 +118,18 @@ export default class PrincipalCart {
               <div class="connection-box">
                 <div class="connection-label">🔗 The Connection</div>
                 <div>
-                  Spider-Man's iconic mantra "With great power comes great
-                  responsibility" perfectly mirrors this biblical principle.
-                  Both teach that those blessed with abilities must use them to
-                  serve others, not themselves.
+                ${hero?.name} is recognized for the strength reflected in ${topHability}, spiritually understood as ${ability?.concept} and described as ${ability?.description}. This trait aligns with ${verse?.book.author} ${verse?.chapter}:${verse?.number}, a passage that highlights the character, purpose, and spiritual depth behind every action.
                 </div>
               </div>
             </div>
  
   `;
-
-
+    const favButton = this.favoriteMatchBtn
+      if (favButton) {
+      
+      this.favoriteTemplates.matchRendertoSet(hero, ability, verse, favButton,topHability);
     }
 
+   
+  }
 }

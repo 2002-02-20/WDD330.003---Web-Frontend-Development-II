@@ -1,17 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorite Page</title>
-    <script type="module" src="/src/js/main.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favorites - Hero Scripture</title>
+
     <link rel="stylesheet" href="/src/css/style.css" />
-</head>
-<body>
-       <header id="main-header"></header>
-    <main>
-      <h1>Favorite Page</h1>
+    <link rel="stylesheet" href="/src/css/favorite_pages_styles.css" />
+    <link rel="stylesheet" href="/src/css/favorite_pages_styles_mobile.css" />
+
+    <!-- Google Fonts Merriweather-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts Source Sans 3 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module" src="/src/js/favoriteTemplates.js" defer></script>
+  </head>
+  <body>
+    <header id="main-header"></header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h2 class="section-title">My Saved Matches</h2>
+      <p class="section-subtitle">Your favorite hero-scripture pairings</p>
+
+      <!-- Favorites Grid -->
+      <div class="favorites-grid" id="favorites-container"></div>
+
+      <!-- Favorite Card 3 
+            <div class="favorite-card">
+                <div class="favorite-header">
+                    <div class="favorite-hero">
+                        <span class="favorite-hero-icon">🛡️</span>
+                        <div>
+                            <div class="favorite-hero-name">Captain America</div>
+                            <div class="favorite-virtue-tag">COURAGE</div>
+                        </div>
+                    </div>
+                    <button class="delete-btn" aria-label="Delete favorite">🗑️</button>
+                </div>
+                <p class="favorite-verse-text">
+                    "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go."
+                </p>
+                <p class="favorite-verse-ref">Joshua 1:9</p>
+            </div>
+
+            -->
+      <!-- Favorite Card 4
+            <div class="favorite-card">
+                <div class="favorite-header">
+                    <div class="favorite-hero">
+                        <span class="favorite-hero-icon">⚔️</span>
+                        <div>
+                            <div class="favorite-hero-name">Wonder Woman</div>
+                            <div class="favorite-virtue-tag">TRUTH</div>
+                        </div>
+                    </div>
+                    <button class="delete-btn" aria-label="Delete favorite">🗑️</button>
+                </div>
+                <p class="favorite-verse-text">
+                    "Then you will know the truth, and the truth will set you free."
+                </p>
+                <p class="favorite-verse-ref">John 8:32</p>
+            </div>
+
+       
+            -->
+      <!-- Empty State (mostrar cuando no hay favoritos) -->
     </main>
     <footer id="main-footer"></footer>
-</body>
+  </body>
 </html>

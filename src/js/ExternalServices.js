@@ -1,7 +1,7 @@
 const bibleAPI = "https://www.abibliadigital.com.br";
 const herosAPI = "https://superhero-search.p.rapidapi.com";
 const TOKENBIBLE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHIiOiJXZWQgRmViIDExIDIwMjYgMDI6NTQ6NDggR01UKzAwMDAuNjk3NTFlZGQ0NDE2MWMwMDI4MTU4MDdiIiwiaWF0IjoxNzcwNzc4NDg4fQ.gG5xLxOUprYuxkqhd5R8XUV3Xnd0kVxTQVq9av4AQjY";
-
+const TOKENHERO = "4cfd49e15amshf9c80fbee2b5ea2p19537fjsne4b2d31e7d71";
 export default class ExternalServices {
 
     //biblieApi
@@ -22,7 +22,7 @@ export default class ExternalServices {
         return data;
 
     }
-
+    /*
     //random verse
     async getRandomVerse() {
         const url = `${bibleAPI}/api/verses/bbe/random`;
@@ -38,6 +38,23 @@ export default class ExternalServices {
         return data;
 
     }
+*/
+
+    //TEST FUNCION
+   async getRandomVerse() {
+    try {
+        const response = await fetch("src/dataTest/bible.json");
+        const result = await response.json();
+        
+        // ✅ Seleccionar UN verso aleatorio del array
+        const randomIndex = Math.floor(Math.random() * result.length);
+        return result[randomIndex]; // Retorna UN objeto, no el array completo
+        
+    } catch (error) {
+        console.error("Error loading local verse:", error);
+        return null;
+    }
+}
 
     //random verse
     async getRandomVerseBook() {
@@ -54,7 +71,7 @@ export default class ExternalServices {
 
     }
 
-
+    /*
     //Superhores
     async getHeroes() {
 
@@ -63,7 +80,8 @@ export default class ExternalServices {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': '8682f38cf7msh579e2fa96670bd4p142d07jsn783276a297fc',
+                //'x-rapidapi-key': `${TOKENHERO}`,
+                'x-rapidapi-key': "8682f38cf7msh579e2fa96670bd4p142d07jsn783276a297fc",
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
             }
         };
@@ -77,6 +95,19 @@ export default class ExternalServices {
         }
     }
 
-
+*/
+//TEST FUNCION
+  async getHeroes() {
+  try {
+    const response = await fetch("src/dataTest/hero.json");
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error loading local heroes:", error);
+    return [];
+  }
+}
 
 }
+
+//const firstkey = '8682f38cf7msh579e2fa96670bd4p142d07jsn783276a297fc';
