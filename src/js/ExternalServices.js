@@ -43,7 +43,7 @@ export default class ExternalServices {
     //TEST FUNCION
    async getRandomVerse() {
     try {
-        const response = await fetch("src/dataTest/bible.json");
+        const response = await fetch("/dataTest/bible.json");
         const result = await response.json();
         
         // ✅ Seleccionar UN verso aleatorio del array
@@ -99,7 +99,7 @@ export default class ExternalServices {
 //TEST FUNCION
   async getHeroes() {
   try {
-    const response = await fetch("src/dataTest/hero.json");
+    const response = await fetch("/dataTest/hero.json");
     const result = await response.json();
     return result;
   } catch (error) {
