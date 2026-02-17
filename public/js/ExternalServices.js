@@ -1,8 +1,4 @@
-const TOKENBIBLE = import.meta.env.VITE_TOKEN_BIBLE;
-const TOKENHERO = import.meta.env.VITE_TOKEN_HERO;
-
-const bibleAPI = import.meta.env.VITE_BIBLE_API;
-const herosAPI = import.meta.env.VITE_HEROS_API;
+import { TOKENBIBLE, TOKENHERO, bibleAPI, herosAPI } from "./keys.js";
 
 
 export default class ExternalServices {

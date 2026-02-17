@@ -92,6 +92,7 @@ export default class PrincipalCart {
 
 
   displayCourseDetails(hero, topHability, verse) {
+    console.log(import.meta.env);
     console.log(hero, "hero");
     console.log(verse, "verse")
     const abilityKey = topHability?.toLowerCase().trim();
