@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        bible: resolve(__dirname, 'public/hero_page/hero_page.html'),
+        bible: resolve(__dirname, 'public/about_us/about_us.html'),
         heroes: resolve(__dirname, 'public/verse_page/verse_page.html'),
         header: resolve(__dirname, 'public/partials/header.html'),
         footer: resolve(__dirname, 'public/partials/footer.html'),

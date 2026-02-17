@@ -30,7 +30,7 @@ export default class PrincipalCart {
 
   async generateNewMatch(productsAPI) {
     const heroes = await productsAPI.getHeroes();
-    const threeHEROES = heroes.slice(0, 5);
+    const threeHEROES = heroes.slice(0, 3);
     const verse = await productsAPI.getRandomVerse();
     this.matchBibleVerse(this.conceptData, verse, threeHEROES);
 

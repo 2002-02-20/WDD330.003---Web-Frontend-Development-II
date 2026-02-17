@@ -86,7 +86,7 @@ export default class FavoriteTemplates {
         }
 
         const favorites = this.getFavoriteItems();
-        console.log("📋 Favoritos encontrados:", favorites);
+
         if (favorites.length === 0) {
             mainContent.innerHTML = `
                 <div class="empty-state">
@@ -137,7 +137,6 @@ export default class FavoriteTemplates {
         let favorites = this.getFavoriteItems();
         favorites = favorites.filter(match => match.savedAt !== savedAt);
         localStorage.setItem("favorites", JSON.stringify(favorites));
-        console.log("✅ Favorito eliminado");
 
     }
 
