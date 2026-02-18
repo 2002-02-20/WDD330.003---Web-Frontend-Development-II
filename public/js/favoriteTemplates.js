@@ -3,34 +3,36 @@ import { loadHeaderFooter } from "./utils.mjs";
 loadHeaderFooter();
 
 export default class FavoriteTemplates {
- 
- constructor() {
-    
+
+    constructor() {
+
         this.initFavoritesPage();
     }
 
     initFavoritesPage() {
-       
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 this.checkAndRenderFavorites();
-                
-                
+
+
             });
         } else {
             this.checkAndRenderFavorites();
         }
     }
- checkAndRenderFavorites() {
+    checkAndRenderFavorites() {
         const favoritesContainer = document.querySelector('.favorites-grid');
-       
-        
+
+
         if (favoritesContainer) {
-           
+
             this.renderFavoriteTemplate(favoritesContainer);
         }
     }
-    matchRendertoSet(hero, ability, verse, favoriteMatchBtn, topHability) {
+    matchRendertoSet(hero, verse, favoriteMatchBtn, topHability, conceptData) {
+        favoriteMatchBtn.onclick = null;
+   
 
         favoriteMatchBtn.addEventListener("click", () => {
 
@@ -42,7 +44,7 @@ export default class FavoriteTemplates {
                     fullName: hero.biography.fullName,
                     topAbility: topHability
                 },
-                concept: ability,
+                concept: conceptData,
                 verse: {
                     text: verse.text,
                     author: verse.book.author,
@@ -69,8 +71,8 @@ export default class FavoriteTemplates {
         const existing = JSON.parse(localStorage.getItem("favorites")) || [];
         existing.push(match);
         localStorage.setItem("favorites", JSON.stringify(existing));
-       
-        
+
+
 
     }
 
@@ -81,7 +83,7 @@ export default class FavoriteTemplates {
 
     renderFavoriteTemplate(mainContent) {
         if (!mainContent) {
-         
+
             return;
         }
 
@@ -142,8 +144,8 @@ export default class FavoriteTemplates {
 
 
 
-   
-    
+
+
 }
 
 
