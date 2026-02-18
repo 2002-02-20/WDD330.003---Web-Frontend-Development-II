@@ -1,5 +1,5 @@
 import ExternalServices from "./ExternalServices.js";
-const mainContent = document.querySelector('.device')
+const mainContent = document.querySelector('.explore-grid')
 
 export default class ExploreHeroes {
 
@@ -11,7 +11,7 @@ export default class ExploreHeroes {
 
     async init(productsAPI) {
         const heroes = await productsAPI.getHeroes();
-        const threeHEROES = heroes.slice(0, 10);
+        const threeHEROES = heroes.slice(0, 20);
         this.displayCartHeroeDetails(threeHEROES);
     }
 
@@ -25,65 +25,62 @@ export default class ExploreHeroes {
 
 
             ` 
-        <div class="main-content">
-            <div class="explore-grid">
-                <!-- Mini Match Card 1 -->
-              <div class="mini-match-card">
-                <div class="mini-hero">
-                  <div class="mini-hero-icon"></div>
-                 <img class="favorite-hero-icon" src="${hero?.images.sm}"/>
-                </div>
-                <div class="mini-verse">
-                  <p class="mini-verse-text">
-                    ${hero?.name}
-                  </p>
-                  <p class="mini-verse-text">
-                    Race: ${hero?.appearance.race}
-                  </p>
-                  <p class="mini-verse-text">
-                    height: ${hero?.appearance.height}
-                  </p>
-                  <p class="mini-verse-text">
-                    weight: ${hero?.appearance.weight}
-                  </p>
-                   <p class="mini-verse-text">
-                    Biography
-                  </p>
-                  <p class="mini-verse-text">
-                    fullName: ${hero?.biography.fullName}
-                  </p>
-                  <p class="mini-verse-text">
-                    Aliases: ${hero?.biography.aliases}
-                  </p>
-                   <p class="mini-verse-text">
-                    Place Of Birth: ${hero?.biography.placeOfBirth}
-                  </p>
-                  <p class="mini-verse-text">
-                    First Appearance: ${hero?.biography.firstAppearance}
-                  </p>
-                   <p class="mini-verse-text">
-                    Publisher: ${hero?.biography.publisher}
-                  </p>
-                   <p class="mini-verse-text">
-                    Work - occupation: ${hero?.work.occupation}
-                  </p>
-                  <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[0]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.intelligence}</p>
-                    <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[1]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.strength}</p>
-                    <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[2]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.speed}</p>
-                    <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[3]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.durability}</p>
-                    <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[4]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.power}</p>
-                    <p class="mini-verse-ref">${Object.keys(hero?.powerstats)[5]}</p>
-                  <p class="mini-verse-ref">${hero?.powerstats.combat}</p>
-                </div>
-              </div> 
+       
+<div class="mini-match-card">
+    <div class="mini-hero">
+        <img class="favorite-hero-icon" src="${hero?.images.sm}" alt="${hero?.name}"/>
+    </div>
+    
+    <div class="mini-verse">
+        <!-- Nombre del héroe -->
+        <p>${hero?.name}</p>
+        
+        <!-- Appearance Section -->
+        <div class="info-section">
+            <div class="info-section-title">Appearance</div>
+            <p class="mini-verse-text"><strong>Race:</strong> ${hero?.appearance.race || 'Unknown'}</p>
+            <p class="mini-verse-text"><strong>Height:</strong> ${hero?.appearance.height[1] || 'Unknown'}</p>
+            <p class="mini-verse-text"><strong>Weight:</strong> ${hero?.appearance.weight[1] || 'Unknown'}</p>
+        </div>
+        
+        <!-- Biography Section -->
+        <div class="info-section">
+            <div class="info-section-title">Biography</div>
+            <p class="mini-verse-text"><strong>Full Name:</strong> ${hero?.biography.fullName || 'Unknown'}</p>
+            <p class="mini-verse-text"><strong>Publisher:</strong> ${hero?.biography.publisher || 'Unknown'}</p>
+            <p class="mini-verse-text"><strong>First Appearance:</strong> ${hero?.biography.firstAppearance || 'Unknown'}</p>
+        </div>
+        
+        <!-- Powerstats Section -->
+        <div class="info-section">
+            <div class="info-section-title">Power Stats</div>
+            <div class="powerstat-item">
+                <span class="powerstat-label">Intelligence</span>
+                <span class="powerstat-value">${hero?.powerstats.intelligence}</span>
             </div>
-        </div> 
-          ` ).join("");
+            <div class="powerstat-item">
+                <span class="powerstat-label">Strength</span>
+                <span class="powerstat-value">${hero?.powerstats.strength}</span>
+            </div>
+            <div class="powerstat-item">
+                <span class="powerstat-label">Speed</span>
+                <span class="powerstat-value">${hero?.powerstats.speed}</span>
+            </div>
+            <div class="powerstat-item">
+                <span class="powerstat-label">Durability</span>
+                <span class="powerstat-value">${hero?.powerstats.durability}</span>
+            </div>
+            <div class="powerstat-item">
+                <span class="powerstat-label">Power</span>
+                <span class="powerstat-value">${hero?.powerstats.power}</span>
+            </div>
+            <div class="powerstat-item">
+                <span class="powerstat-label">Combat</span>
+                <span class="powerstat-value">${hero?.powerstats.combat}</span>
+            </div>
+        </div>
+    </div>
+</div>`).join("");
         ;
     }
 }

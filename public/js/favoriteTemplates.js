@@ -31,7 +31,7 @@ export default class FavoriteTemplates {
         }
     }
     matchRendertoSet(hero, verse, favoriteMatchBtn, topHability, conceptData) {
-        favoriteMatchBtn.onclick = null;
+
    
 
         favoriteMatchBtn.addEventListener("click", () => {
