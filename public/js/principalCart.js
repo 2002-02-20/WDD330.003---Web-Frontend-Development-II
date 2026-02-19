@@ -33,7 +33,7 @@ export default class PrincipalCart {
   async generateNewMatch(productsAPI) {
    
     const heroes = await productsAPI.getHeroes();
-    const threeHEROES = heroes.slice(0, 10); //obtener un array de objetos hero
+    const threeHEROES = heroes.slice(0, 40); //obtener un array de objetos hero
     const verse = await productsAPI.getRandomVerse();  //obtener random verse
     const verseTEXT = verse.text.toLowerCase();
 
@@ -57,6 +57,7 @@ export default class PrincipalCart {
       const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
       let topHability;
 
+     
       if (maxHability === combat) topHability = "combat";
       else if (maxHability === durability) topHability = "durability";
       else if (maxHability === intelligence) topHability = "intelligence";
@@ -64,12 +65,13 @@ export default class PrincipalCart {
       else if (maxHability === speed) topHability = "speed";
       else if (maxHability === strength) topHability = "strength";
       this.mayoirPowerstats = topHability;
+         console.log(this.mayoirPowerstats, categoryconceptBank)
       return categoryconceptBank === this.mayoirPowerstats;
     });
     
     this.displayCourseDetails(hero, this.mayoirPowerstats, verse, this.conceptData)
     
-  
+   
   }
 
 saveFavorite() {
@@ -116,7 +118,9 @@ saveFavorite() {
 displayCourseDetails(hero, topHability, verse, conceptData) {
 
     this.currentHero = hero;
+    
     this.currentVerse = verse;
+
   mainContent.innerHTML =
     `  
           <div class="match-content">

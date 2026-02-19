@@ -1,5 +1,5 @@
 import ExternalServices from "./ExternalServices.js";
-const mainContent = document.querySelector('.explore-grid')
+const mainContent = document.querySelector('.explore-grid-explore')
 
 export default class ExploreHeroes {
 
@@ -11,7 +11,7 @@ export default class ExploreHeroes {
 
     async init(productsAPI) {
         const heroes = await productsAPI.getHeroes();
-        const threeHEROES = heroes.slice(0, 20);
+        const threeHEROES = heroes.slice(0, 10);
         this.displayCartHeroeDetails(threeHEROES);
     }
 

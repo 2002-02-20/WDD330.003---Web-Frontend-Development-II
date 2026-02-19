@@ -21,7 +21,7 @@ export default class ExternalServices {
         return data;
 
     }
-    /*
+/*
     //random verse
     async getRandomVerse() {
         const url = `${bibleAPI}/api/verses/bbe/random`;
@@ -37,23 +37,23 @@ export default class ExternalServices {
         return data;
 
     }
-*/
-
-    //TEST FUNCION
-   async getRandomVerse() {
-    try {
-        const response = await fetch("/dataTest/bible.json");
-        const result = await response.json();
-              
-        const randomIndex = Math.floor(Math.random() * result.length);
-        return result[randomIndex]; o
-        
-    } catch (error) {
-        console.error("Error loading local verse:", error);
-        return null;
+  */
+    
+        //TEST FUNCION
+       async getRandomVerse() {
+        try {
+            const response = await fetch("/dataTest/bible.json");
+            const result = await response.json();
+                  
+            const randomIndex = Math.floor(Math.random() * result.length);
+            return result[randomIndex]; o
+            
+        } catch (error) {
+            console.error("Error loading local verse:", error);
+            return null;
+        }
     }
-}
-
+  
     //random verse
     async getRandomVerseBook() {
         const url = `${bibleAPI}/api/verses/bbe/en/random`;
@@ -69,16 +69,14 @@ export default class ExternalServices {
 
     }
 
-    /*
+ /*
     //Superhores
     async getHeroes() {
-
-
         const url = `${herosAPI}/api/heroes`;
         const options = {
             method: 'GET',
             headers: {
-                //'x-rapidapi-key': `${TOKENHERO}`,
+                'x-rapidapi-key': `${TOKENHERO}`,
                 'x-rapidapi-host': 'superhero-search.p.rapidapi.com'
             }
         };
@@ -88,21 +86,21 @@ export default class ExternalServices {
             const result = await response.json();
             return result;
         } catch (error) {
-           return error;
+            return error;
         }
     }
-
-*/
-//TEST FUNCION
-  async getHeroes() {
-  try {
-    const response = await fetch("/dataTest/hero.json");
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error("Error loading local heroes:", error);
-    return [];
-  }
-}
-
+ */
+   
+    //TEST FUNCION
+      async getHeroes() {
+      try {
+        const response = await fetch("/dataTest/hero.json");
+        const result = await response.json();
+        return result;
+      } catch (error) {
+        console.error("Error loading local heroes:", error);
+        return [];
+      }
+    }
+   
 }

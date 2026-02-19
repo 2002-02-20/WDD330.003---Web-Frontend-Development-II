@@ -30,7 +30,7 @@
    EXPLORE GRID
    ============================================ */
 
-.explore-grid {
+.explore-grid-explore {
     display: grid;
     align-items: start;
     justify-content: center;
@@ -39,7 +39,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box; /* FIX: padding interno no rompe el ancho */
+    /*box-sizing: border-box;  FIX: padding interno no rompe el ancho */
 }
 
 .mini-match-card {
@@ -242,16 +242,16 @@
    ============================================ */
 
 /* Desktop grande (≤ 1400px) */
-@media (max-width: 1400px) {
-    .explore-grid {
-        grid-template-columns: repeat(3, 1fr); /* FIX: faltaba "repeat()" */
+@media (max-width: 1200px) {
+    .explore-grid-explore {
+        grid-template-columns: repeat(3, 1fr); 
         max-width: 1100px;
         gap: 25px;
     }
 }
-
+ 
 /* Tablets y Desktop pequeño (≤ 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .main-content {
         padding: 40px 30px;
     }
@@ -260,8 +260,9 @@
         font-size: 32px;
     }
 
-    .explore-grid {
+    .explore-grid-explore {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 750px;
         gap: 20px;
     }
 
@@ -280,7 +281,7 @@
 }
 
 /* Tablets portrait (≤ 768px) */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .main-content {
         padding: 30px 20px;
     }
@@ -295,10 +296,10 @@
         margin-bottom: 30px;
     }
 
-    .explore-grid {
-        grid-template-columns: repeat(2, 1fr); /* FIX: "2fr" era incorrecto, debe ser repeat(2, 1fr) */
+    .explore-grid-explore {
+        grid-template-columns: 1fr; /* FIX: "2fr" era incorrecto, debe ser repeat(2, 1fr) */
         gap: 20px;
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     .favorite-hero-icon {
@@ -361,7 +362,7 @@
 }
 
 /* Móvil (≤ 600px) */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .main-content {
         padding: 20px 15px;
     }
@@ -375,10 +376,10 @@
         margin-bottom: 25px;
     }
 
-    .explore-grid {
+    .explore-grid-explore {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
     .mini-match-card:hover {

@@ -16,7 +16,6 @@ export default function ConceptBank() {
         "judge"
       ]
     },
-
     durability: {
       concept: "Persevering Faith",
       description: "the strength to endure trials with patience, trusting that growth is formed through resistance",
