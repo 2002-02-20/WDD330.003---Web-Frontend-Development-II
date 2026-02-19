@@ -15,17 +15,10 @@ export default class ExploreHeroes {
         this.displayCartHeroeDetails(threeHEROES);
     }
 
-
-
     displayCartHeroeDetails(threeHEROES) {
 
-
-
         mainContent.innerHTML = threeHEROES.map(hero =>
-
-
-            ` 
-       
+            `      
 <div class="mini-match-card">
     <div class="mini-hero">
         <img class="favorite-hero-icon" src="${hero?.images.sm}" alt="${hero?.name}"/>
@@ -86,5 +79,3 @@ export default class ExploreHeroes {
 }
 
 new ExploreHeroes()
-
-//  <p class="mini-verse-ref">${Object.keys(hero?.powerstats[0])}</p>

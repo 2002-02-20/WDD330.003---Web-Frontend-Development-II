@@ -12,32 +12,31 @@ export default class PrincipalCart {
     this.favoriteMatchBtn = document.querySelector('.btn-primary');
     this.conceptData = ConceptBank();
     this.favoriteTemplates = new FavoriteTemplates();
-    this.mayoirPowerstats =null;
-    
+    this.mayoirPowerstats = null;
+
     this.generateNewMatch(this.productsAPI);
 
     mainContent.addEventListener("click", (e) => {
-      
-        if (e.target.classList.contains('btn-secondary')) {
-            this.generateNewMatch(this.productsAPI);
-        }
-        
 
-        if (e.target.classList.contains('btn-primary')) {
-            this.saveFavorite();
-        }
+      if (e.target.classList.contains('btn-secondary')) {
+        this.generateNewMatch(this.productsAPI);
+      }
+
+      if (e.target.classList.contains('btn-primary')) {
+        this.saveFavorite();
+      }
     });
 
   }
 
   async generateNewMatch(productsAPI) {
-   
+
     const heroes = await productsAPI.getHeroes();
-    const threeHEROES = heroes.slice(0, 40); //obtener un array de objetos hero
-    const verse = await productsAPI.getRandomVerse();  //obtener random verse
+    const threeHEROES = heroes.slice(0, 50);
+    const verse = await productsAPI.getRandomVerse();
     const verseTEXT = verse.text.toLowerCase();
 
-    let categoryconceptBank; // incluye la palabra la categoria que coicidio con la palabra 
+    let categoryconceptBank;
     for (const category in this.conceptData) {
       const keywords = this.conceptData[category].keywords;
       for (const word of keywords) {
@@ -57,7 +56,7 @@ export default class PrincipalCart {
       const maxHability = Math.max(combat, durability, intelligence, power, speed, strength);
       let topHability;
 
-     
+
       if (maxHability === combat) topHability = "combat";
       else if (maxHability === durability) topHability = "durability";
       else if (maxHability === intelligence) topHability = "intelligence";
@@ -65,64 +64,60 @@ export default class PrincipalCart {
       else if (maxHability === speed) topHability = "speed";
       else if (maxHability === strength) topHability = "strength";
       this.mayoirPowerstats = topHability;
-         console.log(this.mayoirPowerstats, categoryconceptBank)
+
       return categoryconceptBank === this.mayoirPowerstats;
+
     });
-    
+
     this.displayCourseDetails(hero, this.mayoirPowerstats, verse, this.conceptData)
-    
-   
   }
 
-saveFavorite() {
-  
+  saveFavorite() {
+
     if (!this.currentHero || !this.currentVerse || !this.mayoirPowerstats) {
-        
-        return;
+      return;
     }
 
     const match = {
-        hero: {
-            id: this.currentHero.id,
-            name: this.currentHero.name,
-            image: this.currentHero.images.sm,
-            fullName: this.currentHero.biography.fullName,
-            topAbility: this.mayoirPowerstats
-        },
-        concept: this.conceptData[this.mayoirPowerstats],
-        verse: {
-            text: this.currentVerse.text,
-            author: this.currentVerse.book.author,
-            chapter: this.currentVerse.chapter,
-            number: this.currentVerse.number,
-            version: this.currentVerse.book.version
-        },
-        savedAt: new Date().toISOString()
+      hero: {
+        id: this.currentHero.id,
+        name: this.currentHero.name,
+        image: this.currentHero.images.sm,
+        fullName: this.currentHero.biography.fullName,
+        topAbility: this.mayoirPowerstats
+      },
+      concept: this.conceptData[this.mayoirPowerstats],
+      verse: {
+        text: this.currentVerse.text,
+        author: this.currentVerse.book.author,
+        chapter: this.currentVerse.chapter,
+        number: this.currentVerse.number,
+        version: this.currentVerse.book.version
+      },
+      savedAt: new Date().toISOString()
     };
 
     this.favoriteTemplates.saveToFavorites(match);
 
-    // Feedback visual
     const btn = document.querySelector('.btn-primary');
     if (btn) {
-        btn.textContent = "✅ Saved!";
-        btn.disabled = true;
-        setTimeout(() => {
-            btn.textContent = "⭐ Save to Favorites";
-            btn.disabled = false;
-        }, 1000);
+      btn.textContent = "✅ Saved!";
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = "⭐ Save to Favorites";
+        btn.disabled = false;
+      }, 1000);
     }
-}
+  }
 
 
-displayCourseDetails(hero, topHability, verse, conceptData) {
+  displayCourseDetails(hero, topHability, verse, conceptData) {
 
     this.currentHero = hero;
-    
     this.currentVerse = verse;
 
-  mainContent.innerHTML =
-    `  
+    mainContent.innerHTML =
+      `  
           <div class="match-content">
             <!-- Hero Side -->
             <div class="hero-side">
@@ -156,10 +151,10 @@ displayCourseDetails(hero, topHability, verse, conceptData) {
           </div>
 
   `;
-  const favoriteMatchBtn = this.favoriteMatchBtn
-  if (favoriteMatchBtn) {
-    this.favoriteTemplates.matchRendertoSet(hero, verse, favoriteMatchBtn, topHability, conceptData);
+    const favoriteMatchBtn = this.favoriteMatchBtn
+    if (favoriteMatchBtn) {
+      this.favoriteTemplates.matchRendertoSet(hero, verse, favoriteMatchBtn, topHability, conceptData);
+    }
   }
-}
 }
 

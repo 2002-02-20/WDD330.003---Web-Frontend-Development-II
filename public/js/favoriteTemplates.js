@@ -5,7 +5,6 @@ loadHeaderFooter();
 export default class FavoriteTemplates {
 
     constructor() {
-
         this.initFavoritesPage();
     }
 
@@ -14,8 +13,6 @@ export default class FavoriteTemplates {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 this.checkAndRenderFavorites();
-
-
             });
         } else {
             this.checkAndRenderFavorites();
@@ -23,16 +20,11 @@ export default class FavoriteTemplates {
     }
     checkAndRenderFavorites() {
         const favoritesContainer = document.querySelector('.favorites-grid');
-
-
         if (favoritesContainer) {
-
             this.renderFavoriteTemplate(favoritesContainer);
         }
     }
     matchRendertoSet(hero, verse, favoriteMatchBtn, topHability, conceptData) {
-
-   
 
         favoriteMatchBtn.addEventListener("click", () => {
 
@@ -71,9 +63,6 @@ export default class FavoriteTemplates {
         const existing = JSON.parse(localStorage.getItem("favorites")) || [];
         existing.push(match);
         localStorage.setItem("favorites", JSON.stringify(existing));
-
-
-
     }
 
     getFavoriteItems() {
@@ -102,7 +91,6 @@ export default class FavoriteTemplates {
 
         const html = favorites.map(match =>
             `
-        
             <!-- Favorite Card 1 -->
             <div class="favorite-card">
                 <div class="favorite-header">
@@ -123,8 +111,6 @@ export default class FavoriteTemplates {
  
   `).join('');
         mainContent.innerHTML = html;
-
-
         const deleteButtons = mainContent.querySelectorAll('.delete-btn');
         deleteButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -139,12 +125,7 @@ export default class FavoriteTemplates {
         let favorites = this.getFavoriteItems();
         favorites = favorites.filter(match => match.savedAt !== savedAt);
         localStorage.setItem("favorites", JSON.stringify(favorites));
-
     }
-
-
-
-
 
 }
 
